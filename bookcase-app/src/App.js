@@ -2,6 +2,15 @@ import React, { useState } from 'react';
 import Book from './components/Book';
 import Search from './components/Search';
 import data from './models/books.json';
+import Header from './components/Header;
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
+
+
+function addBook(title) {
+  console.log(`The Book 
+ '${title}' was clicked`);
+  }
 
 function App() {
   const [books, setBooks] = useState(data);
@@ -17,7 +26,7 @@ function App() {
 
   return <>
     <Search findBooks={findBooks} />
-    {books.map(book => <Book key={book.id} book={book}/>)}
+    {books.map(book => <Book key={book.id} book={book} addBook={addBook}/>)}
   </>
 }
 
